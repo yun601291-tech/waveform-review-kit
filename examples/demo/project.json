@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "project_id": "synthetic-waveform-demo",
+  "title": "波形人工复核",
+  "description": "一个简洁、通用的波形浏览与人工筛选示例。以下图像均为合成数据。",
+  "sections": [
+    {
+      "id": "review",
+      "label": "待复核",
+      "reviewable": true,
+      "description": "需要逐条给出人工判定的数据。"
+    },
+    {
+      "id": "known",
+      "label": "已知参考",
+      "reviewable": false,
+      "description": "用于建立判断尺度的已知样本。"
+    },
+    {
+      "id": "candidate",
+      "label": "候选参考",
+      "reviewable": false,
+      "description": "与待复核数据更接近的参考样本。"
+    }
+  ],
+  "labels": [
+    {"code": "confirmed", "name": "确认事件", "shortcut": "1", "color": "#248a3d"},
+    {"code": "possible", "name": "可能事件", "shortcut": "2", "color": "#c77900"},
+    {"code": "rejected", "name": "非事件或噪声", "shortcut": "3", "color": "#d70015"},
+    {"code": "uncertain", "name": "无法判断", "shortcut": "4", "color": "#6e6e73"}
+  ],
+  "items": [
+    {
+      "id": "REVIEW-001",
+      "section": "review",
+      "title": "REVIEW-001",
+      "subtitle": "合成示例：多台站具有较一致的P、S波形变化",
+      "tags": ["建议候选", "多页"],
+      "metadata": {
+        "时间": "2026-01-01 00:00:01.250",
+        "质量级别": "B",
+        "台站数": 12,
+        "算法状态": "待人工复核"
+      },
+      "pages": [
+        {
+          "image": "review_clear.svg",
+          "label": "台站 1–8",
+          "caption": "合成示例第1页：较清晰的相干到时。"
+        },
+        {
+          "image": "review_weak.svg",
+          "label": "台站 5–12",
+          "caption": "合成示例第2页：较弱的到时表现。"
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-002",
+      "section": "review",
+      "title": "REVIEW-002",
+      "subtitle": "合成示例：较弱信号，需要结合多个台站判断",
+      "tags": ["人工复核", "弱信号"],
+      "metadata": {
+        "时间": "2026-01-01 00:02:18.800",
+        "质量级别": "C",
+        "台站数": 7
+      },
+      "pages": [
+        {
+          "image": "review_weak.svg",
+          "label": "全部台站",
+          "caption": "弱信号示例。"
+        }
+      ]
+    },
+    {
+      "id": "REVIEW-003",
+      "section": "review",
+      "title": "REVIEW-003",
+      "subtitle": "合成示例：缺少跨台站一致性",
+      "tags": ["人工复核", "噪声示例"],
+      "metadata": {
+        "时间": "2026-01-01 00:05:42.060",
+        "质量级别": "C",
+        "台站数": 5
+      },
+      "pages": [
+        {
+          "image": "review_noise.svg",
+          "label": "全部台站",
+          "caption": "随机噪声示例，不代表真实台站数据。"
+        }
+      ]
+    },
+    {
+      "id": "KNOWN-001",
+      "section": "known",
+      "title": "KNOWN-001",
+      "subtitle": "已知事件参考：P、S起始清楚且跨台站一致",
+      "tags": ["参考", "清晰"],
+      "metadata": {
+        "来源": "合成演示",
+        "类别": "已知事件"
+      },
+      "pages": [
+        {
+          "image": "known_reference.svg",
+          "label": "参考波形",
+          "caption": "此图为合成参考数据。"
+        }
+      ]
+    },
+    {
+      "id": "CANDIDATE-001",
+      "section": "candidate",
+      "title": "CANDIDATE-001",
+      "subtitle": "候选参考：信号较弱，但多个台站仍有一致变化",
+      "tags": ["参考", "中等信号"],
+      "metadata": {
+        "来源": "合成演示",
+        "类别": "候选事件"
+      },
+      "pages": [
+        {
+          "image": "candidate_reference.svg",
+          "label": "参考波形",
+          "caption": "此图为合成参考数据。"
+        }
+      ]
+    }
+  ]
+}

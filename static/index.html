@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Waveform Review Kit</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1 id="projectTitle">Waveform Review Kit</h1>
+      <p id="projectDescription"></p>
+    </div>
+    <div class="top-actions">
+      <button id="importButton" type="button">导入复核结果</button>
+      <button id="exportButton" type="button" class="primary">导出 CSV</button>
+      <input id="importFile" type="file" accept=".csv,text/csv" hidden>
+    </div>
+  </header>
+
+  <nav id="sectionTabs" class="tabs" aria-label="数据分区"></nav>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <section class="progress-card">
+        <div class="progress-row">
+          <strong id="progressText">0 / 0 已复核</strong>
+          <span id="visibleCount">0 条可见</span>
+        </div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+      </section>
+
+      <label class="field">
+        <span>搜索编号或说明</span>
+        <input id="searchInput" type="search" placeholder="输入关键词">
+      </label>
+
+      <label class="field">
+        <span>判定筛选</span>
+        <select id="decisionFilter">
+          <option value="all">全部判定</option>
+          <option value="unreviewed">仅未复核</option>
+          <option value="reviewed">仅已复核</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>标签筛选</span>
+        <select id="tagFilter">
+          <option value="all">全部标签</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>选择数据</span>
+        <select id="itemSelect" size="12" aria-label="选择待复核数据"></select>
+      </label>
+
+      <div class="nav-buttons">
+        <button id="previousButton" type="button">← 上一个</button>
+        <button id="nextButton" type="button">下一个 →</button>
+      </div>
+    </aside>
+
+    <main>
+      <section id="emptyState" class="empty-state" hidden>
+        当前筛选条件下没有数据。
+      </section>
+
+      <section id="viewer" hidden>
+        <div class="item-heading">
+          <div>
+            <div class="eyebrow" id="counter"></div>
+            <h2 id="itemTitle"></h2>
+            <p id="itemSubtitle"></p>
+          </div>
+          <div id="itemTags" class="tag-list"></div>
+        </div>
+
+        <dl id="metadata" class="metadata"></dl>
+
+        <div class="page-controls">
+          <label>
+            <span>波形页</span>
+            <select id="pageSelect" aria-label="选择波形页"></select>
+          </label>
+          <a id="openImage" target="_blank" rel="noopener">查看原尺寸图</a>
+        </div>
+
+        <figure class="waveform-frame">
+          <img id="waveformImage" alt="待复核波形">
+          <figcaption id="imageCaption"></figcaption>
+        </figure>
+
+        <section id="decisionPanel" class="decision-panel">
+          <h3>人工判定</h3>
+          <div id="decisionButtons" class="decision-buttons"></div>
+          <label class="field">
+            <span>备注</span>
+            <textarea id="noteInput" rows="3" placeholder="可选：记录判断依据或需进一步检查的问题"></textarea>
+          </label>
+          <p class="autosave">判定自动保存在当前浏览器。跨电脑或清理浏览器前请导出 CSV。</p>
+        </section>
+
+        <section id="referenceNotice" class="reference-notice" hidden>
+          此分区用于对照参考，不记录人工判定。
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span id="shortcutHelp"></span>
+    <button id="clearButton" type="button" class="text-button">清除本项目在本浏览器中的判定</button>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

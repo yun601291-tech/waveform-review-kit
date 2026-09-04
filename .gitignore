@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+runtime/
+projects/
+private_data/
+exports/
+*_reviews_*.csv
+*.log
+*.pid
+
+# Raw seismic files and common waveform exports are private by default.
+*.SAC
+*.sac
+*.mseed
+*.miniseed
+*.seed
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.tif
+*.tiff
+*.pdf

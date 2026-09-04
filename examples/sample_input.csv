@@ -1,0 +1,6 @@
+id,section,title,subtitle,tags,images,page_labels,meta_time,meta_quality,meta_station_count
+KNOWN-001,known,KNOWN-001,已知事件参考,参考|清晰,demo/assets/known_reference.svg,参考波形,2026-01-01 00:00:00,A,3
+CANDIDATE-001,candidate,CANDIDATE-001,候选事件参考,参考|中等信号,demo/assets/candidate_reference.svg,参考波形,2026-01-01 00:00:10,B,3
+REVIEW-001,review,REVIEW-001,需要人工判断,建议候选|多页,demo/assets/review_clear.svg|demo/assets/review_weak.svg,台站1-8|台站5-12,2026-01-01 00:00:20,B,12
+REVIEW-002,review,REVIEW-002,较弱信号,人工复核|弱信号,demo/assets/review_weak.svg,全部台站,2026-01-01 00:00:30,C,7
+REVIEW-003,review,REVIEW-003,噪声示例,人工复核|噪声,demo/assets/review_noise.svg,全部台站,2026-01-01 00:00:40,C,5
