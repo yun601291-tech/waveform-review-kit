@@ -1,5 +1,11 @@
 # Waveform Review Kit｜通用波形人工筛选工具
 
+[English documentation](README.en.md) · **简体中文**
+
+> 本仓库已增加 [贡献指南](CONTRIBUTING.md)、[GitHub Actions 自动化测试](.github/workflows/tests.yml) 和 [合成演示界面截图脚本](tools/capture_demo.py)。截图由真实浏览器运行本地合成示例获取，**不是**真实地震观测数据，也不是 AI 生成的界面。
+
+
+
 一个本地运行、数据与界面分离的波形浏览和人工复核项目。它保留了实际科研复核中最有用的流程：参考样本、待复核数据、多页波形、搜索与筛选、数字快捷键、备注、自动暂存，以及 CSV 导入导出。
 
 界面只在本机浏览器中运行。默认监听 **127.0.0.1**，不会把波形或复核结果上传到互联网。
